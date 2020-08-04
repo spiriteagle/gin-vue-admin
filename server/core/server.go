@@ -21,6 +21,8 @@ func RunWindowsServer() {
 
 	//InstallPlugs(Router)
 	// end 插件描述
+	//系统管理后台
+	Router.Static("/admin", "./resource/dist")
 
 	address := fmt.Sprintf(":%d", global.GVA_CONFIG.System.Addr)
 	s := initServer(address, Router)
