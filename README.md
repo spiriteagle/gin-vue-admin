@@ -15,6 +15,7 @@ English | [简体中文](./README-zh_CN.md)
 # Project Guidelines
 [Online Documentation](http://doc.henrongyi.top/)
 
+[Development Steps](http://doc.henrongyi.top/help/) (Contributor:  <a href="https://github.com/LLemonGreen">LLemonGreen</a> And <a href="https://github.com/fkk0509">Fann</a>)
 - Web UI Framework：[element-ui](https://github.com/ElemeFE/element)  
 - Server Framework：[gin](https://github.com/gin-gonic/gin) 
 
@@ -243,10 +244,13 @@ backend code file: model\dnModel\api.go
 
 ## 8. Contacts
 ### 8.1 Groups
-| QQ group |  
-|  :---:  |
-| <img src="http://qmplusimg.henrongyi.top/qq.jpg" width="180"/> |
-### QQ group: 622360840
+
+| QQ group(full) | QQ group2 |  
+|  :---:  |   :---:  |
+| <img src="http://qmplusimg.henrongyi.top/qq.jpg" width="180"/> |<img src="http://qmplusimg.henrongyi.top/qq2.jpg" width="180"/> |
+
+### QQ group: 622360840（full）
+### QQ group2: 101809076
 
 ### Wechat group: add anyone above, comment "加入gin-vue-admin交流群"
 
