@@ -25,5 +25,9 @@ yarn-error.log*
 go.sum
 /server/log/
 /server/latest_log
+/server/gin-vue-admin.exe
+/server/package-lock.json
+/server/resource/dist/
+/server/config.yaml
 
 *.iml
