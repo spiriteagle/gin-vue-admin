@@ -28,19 +28,18 @@
                 "summary": "创建基础api",
                 "parameters": [
                     {
-                        "description": "创建api",
+                        "description": "api路径, api中文描述, api组, 方法",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysApi"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -64,22 +63,21 @@
                 "tags": [
                     "SysApi"
                 ],
-                "summary": "删除指定api",
+                "summary": "删除api",
                 "parameters": [
                     {
-                        "description": "删除api",
+                        "description": "ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysApi"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -138,7 +136,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.GetById"
                         }
                     }
@@ -177,7 +174,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.SearchApiParams"
                         }
                     }
@@ -211,19 +207,18 @@
                 "summary": "创建基础api",
                 "parameters": [
                     {
-                        "description": "创建api",
+                        "description": "api路径, api中文描述, api组, 方法",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysApi"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"修改成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -245,17 +240,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
                 "summary": "拷贝角色",
                 "parameters": [
                     {
-                        "description": "拷贝角色",
+                        "description": "旧角色id, 新权限id, 新权限名, 新父角色id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/response.SysAuthorityCopyResponse"
                         }
                     }
@@ -284,24 +278,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
                 "summary": "创建角色",
                 "parameters": [
                     {
-                        "description": "创建角色",
+                        "description": "权限id, 权限名, 父角色id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysAuthority"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -323,7 +316,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
                 "summary": "删除角色",
                 "parameters": [
@@ -333,14 +326,13 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysAuthority"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -362,17 +354,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
                 "summary": "分页获取角色列表",
                 "parameters": [
                     {
-                        "description": "分页获取用户列表",
+                        "description": "页码, 每页大小",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.PageInfo"
                         }
                     }
@@ -401,7 +392,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
                 "summary": "设置角色资源权限",
                 "parameters": [
@@ -411,7 +402,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysAuthority"
                         }
                     }
@@ -440,24 +430,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authority"
+                    "Authority"
                 ],
-                "summary": "设置角色资源权限",
+                "summary": "更新角色信息",
                 "parameters": [
                     {
-                        "description": "设置角色资源权限",
+                        "description": "权限id, 权限名, 父角色id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysAuthority"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"设置成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -479,24 +468,39 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "AutoCode"
                 ],
                 "summary": "自动代码模板",
-                "parameters": [
-                    {
-                        "description": "创建自动代码",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/model.AutoCodeStruct"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/autoCode/getColumn": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AutoCode"
+                ],
+                "summary": "获取当前表所有字段",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -518,12 +522,39 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "AutoCode"
                 ],
-                "summary": "获取当前表所有字段",
+                "summary": "获取当前所有数据库",
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/autoCode/getTables": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AutoCode"
+                ],
+                "summary": "获取当前数据库所有表",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -545,12 +576,12 @@
                     "application/json"
                 ],
                 "tags": [
-                    "base"
+                    "Base"
                 ],
                 "summary": "生成验证码",
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"验证码获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -569,89 +600,18 @@
                 "summary": "用户登录",
                 "parameters": [
                     {
-                        "description": "用户登录接口",
+                        "description": "用户名, 密码, 验证码",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/request.RegisterAndLoginStruct"
+                            "$ref": "#/definitions/request.Login"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"登陆成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/base/register": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Base"
-                ],
-                "summary": "用户注册账号",
-                "parameters": [
-                    {
-                        "description": "用户注册接口",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/model.SysUser"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"注册成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/casbin/CasbinTest": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "casbin"
-                ],
-                "summary": "casb RBAC RESTFUL测试路由",
-                "parameters": [
-                    {
-                        "description": "获取权限列表",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/request.CasbinInReceive"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -673,24 +633,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "casbin"
+                    "Casbin"
                 ],
-                "summary": "更改角色api权限",
+                "summary": "更新角色api权限",
                 "parameters": [
                     {
-                        "description": "更改角色api权限",
+                        "description": "权限id, 权限模型列表",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.CasbinInReceive"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -712,17 +671,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "casbin"
+                    "Casbin"
                 ],
                 "summary": "获取权限列表",
                 "parameters": [
                     {
-                        "description": "获取权限列表",
+                        "description": "权限id, 权限模型列表",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.CasbinInReceive"
                         }
                     }
@@ -751,17 +709,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "ExaCustomer"
                 ],
                 "summary": "获取单一客户信息",
                 "parameters": [
                     {
-                        "description": "获取单一客户信息",
+                        "description": "客户ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.ExaCustomer"
                         }
                     }
@@ -788,24 +745,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "ExaCustomer"
                 ],
                 "summary": "更新客户信息",
                 "parameters": [
                     {
-                        "description": "创建客户",
+                        "description": "客户ID, 客户信息",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.ExaCustomer"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -825,24 +781,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "ExaCustomer"
                 ],
                 "summary": "创建客户",
                 "parameters": [
                     {
-                        "description": "创建客户",
+                        "description": "客户用户名, 客户手机号码",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.ExaCustomer"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -862,24 +817,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "ExaCustomer"
                 ],
                 "summary": "删除客户",
                 "parameters": [
                     {
-                        "description": "删除客户",
+                        "description": "客户ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.ExaCustomer"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -901,17 +855,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "SysApi"
+                    "ExaCustomer"
                 ],
-                "summary": "获取权限客户列表",
+                "summary": "分页获取权限客户列表",
                 "parameters": [
                     {
-                        "description": "获取权限客户列表",
+                        "description": "页码, 每页大小",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.PageInfo"
                         }
                     }
@@ -919,6 +872,30 @@
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/email/emailTest": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "System"
+                ],
+                "summary": "发送测试邮件",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"发送成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -954,7 +931,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"上传成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"切片创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -983,14 +960,13 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.ExaFileUploadAndDownload"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1014,7 +990,7 @@
                 "tags": [
                     "ExaFileUploadAndDownload"
                 ],
-                "summary": "查找文件",
+                "summary": "创建文件",
                 "parameters": [
                     {
                         "type": "file",
@@ -1053,12 +1029,11 @@
                 "summary": "分页文件列表",
                 "parameters": [
                     {
-                        "description": "分页获取文件户列表",
+                        "description": "页码, 每页大小",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.PageInfo"
                         }
                     }
@@ -1101,7 +1076,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查找成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"缓存切片删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1159,7 +1134,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "jwt"
+                    "Jwt"
                 ],
                 "summary": "jwt加入黑名单",
                 "responses": {
@@ -1186,18 +1161,17 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authorityAndMenu"
+                    "AuthorityMenu"
                 ],
                 "summary": "获取指定角色menu",
                 "parameters": [
                     {
-                        "description": "增加menu和角色关联关系",
+                        "description": "角色ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/request.AuthorityIdInfo"
+                            "$ref": "#/definitions/request.GetAuthorityId"
                         }
                     }
                 ],
@@ -1225,24 +1199,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "menu"
+                    "Menu"
                 ],
                 "summary": "新增菜单",
                 "parameters": [
                     {
-                        "description": "新增菜单",
+                        "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysBaseMenu"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1264,24 +1237,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authorityAndMenu"
+                    "AuthorityMenu"
                 ],
                 "summary": "增加menu和角色关联关系",
                 "parameters": [
                     {
-                        "description": "增加menu和角色关联关系",
+                        "description": "角色ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.AddMenuAuthorityInfo"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1303,24 +1275,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "menu"
+                    "Menu"
                 ],
                 "summary": "删除菜单",
                 "parameters": [
                     {
-                        "description": "删除菜单",
+                        "description": "菜单id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.GetById"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1342,17 +1313,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "menu"
+                    "Menu"
                 ],
                 "summary": "根据id获取菜单",
                 "parameters": [
                     {
-                        "description": "根据id获取菜单",
+                        "description": "菜单id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.GetById"
                         }
                     }
@@ -1378,24 +1348,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authorityAndMenu"
+                    "AuthorityMenu"
                 ],
                 "summary": "获取用户动态路由",
                 "parameters": [
                     {
-                        "description": "可以什么都不填",
+                        "description": "空",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/request.RegisterAndLoginStruct"
+                            "$ref": "#/definitions/request.Empty"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1414,24 +1383,23 @@
                     "application/json"
                 ],
                 "tags": [
-                    "authorityAndMenu"
+                    "AuthorityMenu"
                 ],
                 "summary": "获取用户动态路由",
                 "parameters": [
                     {
-                        "description": "可以什么都不填",
+                        "description": "空",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/request.RegisterAndLoginStruct"
+                            "$ref": "#/definitions/request.Empty"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1453,17 +1421,16 @@
                     "application/json"
                 ],
                 "tags": [
-                    "menu"
+                    "Menu"
                 ],
                 "summary": "分页获取基础menu列表",
                 "parameters": [
                     {
-                        "description": "分页获取基础menu列表",
+                        "description": "页码, 每页大小",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.PageInfo"
                         }
                     }
@@ -1492,24 +1459,116 @@
                     "application/json"
                 ],
                 "tags": [
-                    "menu"
+                    "Menu"
                 ],
                 "summary": "更新菜单",
                 "parameters": [
                     {
-                        "description": "更新菜单",
+                        "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysBaseMenu"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/simpleUploader/checkFileMd5": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SimpleUploader"
+                ],
+                "summary": "断点续传插件版示例",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "md5",
+                        "name": "md5",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/simpleUploader/mergeFileMd5": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SimpleUploader"
+                ],
+                "summary": "合并文件",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "md5",
+                        "name": "md5",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"合并成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/simpleUploader/upload": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SimpleUploader"
+                ],
+                "summary": "断点续传插件版示例",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"切片创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1536,19 +1595,18 @@
                 "summary": "创建SysDictionary",
                 "parameters": [
                     {
-                        "description": "创建SysDictionary",
+                        "description": "SysDictionary模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionary"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1575,12 +1633,11 @@
                 "summary": "删除SysDictionary",
                 "parameters": [
                     {
-                        "description": "删除SysDictionary",
+                        "description": "SysDictionary模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionary"
                         }
                     }
@@ -1614,12 +1671,11 @@
                 "summary": "用id查询SysDictionary",
                 "parameters": [
                     {
-                        "description": "用id查询SysDictionary",
+                        "description": "ID或字典英名",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionary"
                         }
                     }
@@ -1653,12 +1709,11 @@
                 "summary": "分页获取SysDictionary列表",
                 "parameters": [
                     {
-                        "description": "分页获取SysDictionary列表",
+                        "description": "页码, 每页大小, 搜索条件",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.SysDictionarySearch"
                         }
                     }
@@ -1692,12 +1747,11 @@
                 "summary": "更新SysDictionary",
                 "parameters": [
                     {
-                        "description": "更新SysDictionary",
+                        "description": "SysDictionary模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionary"
                         }
                     }
@@ -1731,19 +1785,18 @@
                 "summary": "创建SysDictionaryDetail",
                 "parameters": [
                     {
-                        "description": "创建SysDictionaryDetail",
+                        "description": "SysDictionaryDetail模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionaryDetail"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1770,12 +1823,11 @@
                 "summary": "删除SysDictionaryDetail",
                 "parameters": [
                     {
-                        "description": "删除SysDictionaryDetail",
+                        "description": "SysDictionaryDetail模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionaryDetail"
                         }
                     }
@@ -1814,7 +1866,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionaryDetail"
                         }
                     }
@@ -1848,12 +1899,11 @@
                 "summary": "分页获取SysDictionaryDetail列表",
                 "parameters": [
                     {
-                        "description": "分页获取SysDictionaryDetail列表",
+                        "description": "页码, 每页大小, 搜索条件",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.SysDictionaryDetailSearch"
                         }
                     }
@@ -1892,7 +1942,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysDictionaryDetail"
                         }
                     }
@@ -1931,7 +1980,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysOperationRecord"
                         }
                     }
@@ -1965,12 +2013,11 @@
                 "summary": "删除SysOperationRecord",
                 "parameters": [
                     {
-                        "description": "删除SysOperationRecord",
+                        "description": "SysOperationRecord模型",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysOperationRecord"
                         }
                     }
@@ -1978,6 +2025,44 @@
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysOperationRecord/deleteSysOperationRecordByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysOperationRecord"
+                ],
+                "summary": "批量删除SysOperationRecord",
+                "parameters": [
+                    {
+                        "description": "批量删除SysOperationRecord",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2004,12 +2089,11 @@
                 "summary": "用id查询SysOperationRecord",
                 "parameters": [
                     {
-                        "description": "用id查询SysOperationRecord",
+                        "description": "Id",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysOperationRecord"
                         }
                     }
@@ -2043,12 +2127,11 @@
                 "summary": "分页获取SysOperationRecord列表",
                 "parameters": [
                     {
-                        "description": "分页获取SysOperationRecord列表",
+                        "description": "页码, 每页大小, 搜索条件",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.SysOperationRecordSearch"
                         }
                     }
@@ -2056,45 +2139,6 @@
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/sysOperationRecord/updateSysOperationRecord": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "SysOperationRecord"
-                ],
-                "summary": "更新SysOperationRecord",
-                "parameters": [
-                    {
-                        "description": "更新SysOperationRecord",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "$ref": "#/definitions/model.SysOperationRecord"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2113,24 +2157,47 @@
                     "application/json"
                 ],
                 "tags": [
-                    "system"
+                    "System"
                 ],
-                "summary": "设置配置文件内容",
+                "summary": "重启系统",
                 "parameters": [
                     {
-                        "description": "设置配置文件内容",
+                        "description": "重启系统",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.System"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"重启系统成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/system/getServerInfo": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "System"
+                ],
+                "summary": "获取服务器信息",
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2149,12 +2216,12 @@
                     "application/json"
                 ],
                 "tags": [
-                    "system"
+                    "System"
                 ],
                 "summary": "获取配置文件内容",
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2173,7 +2240,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "system"
+                    "System"
                 ],
                 "summary": "设置配置文件内容",
                 "parameters": [
@@ -2183,14 +2250,13 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.System"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"返回成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"设置成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2214,12 +2280,11 @@
                 "summary": "用户修改密码",
                 "parameters": [
                     {
-                        "description": "用户修改密码",
+                        "description": "用户名, 原密码, 新密码",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.ChangePasswordStruct"
                         }
                     }
@@ -2253,19 +2318,18 @@
                 "summary": "删除用户",
                 "parameters": [
                     {
-                        "description": "删除用户",
+                        "description": "用户ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.GetById"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"修改成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2292,12 +2356,11 @@
                 "summary": "分页获取用户列表",
                 "parameters": [
                     {
-                        "description": "分页获取用户列表",
+                        "description": "页码, 每页大小",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.PageInfo"
                         }
                     }
@@ -2305,6 +2368,36 @@
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysUser"
+                ],
+                "summary": "用户注册账号",
+                "parameters": [
+                    {
+                        "description": "用户名, 昵称, 密码, 角色ID",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.SysUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"注册成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2331,12 +2424,11 @@
                 "summary": "设置用户权限",
                 "parameters": [
                     {
-                        "description": "设置用户权限",
+                        "description": "用户UUID, 角色ID",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/request.SetUserAuth"
                         }
                     }
@@ -2351,15 +2443,15 @@
                 }
             }
         },
-        "/user/uploadHeaderImg": {
-            "post": {
+        "/user/setUserInfo": {
+            "put": {
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
                 "consumes": [
-                    "multipart/form-data"
+                    "application/json"
                 ],
                 "produces": [
                     "application/json"
@@ -2367,26 +2459,21 @@
                 "tags": [
                     "SysUser"
                 ],
-                "summary": "用户上传头像",
+                "summary": "设置用户信息",
                 "parameters": [
                     {
-                        "type": "file",
-                        "description": "用户上传头像",
-                        "name": "headerImg",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "用户上传头像",
-                        "name": "username",
-                        "in": "formData",
-                        "required": true
+                        "description": "ID, 用户名, 昵称, 头像链接",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.SysUser"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"上传成功\"}",
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"设置成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2410,7 +2497,6 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object",
                             "$ref": "#/definitions/model.SysWorkflow"
                         }
                     }
@@ -2449,6 +2535,32 @@
                 }
             }
         },
+        "config.Email": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "isSSL": {
+                    "type": "boolean"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "secret": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                }
+            }
+        },
         "config.JWT": {
             "type": "object",
             "properties": {
@@ -2457,19 +2569,10 @@
                 }
             }
         },
-        "config.Log": {
+        "config.Local": {
             "type": "object",
             "properties": {
-                "file": {
-                    "type": "string"
-                },
-                "logFile": {
-                    "type": "boolean"
-                },
-                "prefix": {
-                    "type": "string"
-                },
-                "stdout": {
+                "path": {
                     "type": "string"
                 }
             }
@@ -2517,6 +2620,15 @@
                 },
                 "secretKey": {
                     "type": "string"
+                },
+                "useCdnDomains": {
+                    "type": "boolean"
+                },
+                "useHttps": {
+                    "type": "boolean"
+                },
+                "zone": {
+                    "type": "string"
                 }
             }
         },
@@ -2545,15 +2657,21 @@
                     "type": "object",
                     "$ref": "#/definitions/config.Casbin"
                 },
+                "email": {
+                    "type": "object",
+                    "$ref": "#/definitions/config.Email"
+                },
                 "jwt": {
                     "type": "object",
                     "$ref": "#/definitions/config.JWT"
                 },
-                "log": {
+                "local": {
+                    "description": "oss",
                     "type": "object",
-                    "$ref": "#/definitions/config.Log"
+                    "$ref": "#/definitions/config.Local"
                 },
                 "mysql": {
+                    "description": "gorm",
                     "type": "object",
                     "$ref": "#/definitions/config.Mysql"
                 },
@@ -2565,33 +2683,13 @@
                     "type": "object",
                     "$ref": "#/definitions/config.Redis"
                 },
-                "sqlite": {
-                    "type": "object",
-                    "$ref": "#/definitions/config.Sqlite"
-                },
                 "system": {
                     "type": "object",
                     "$ref": "#/definitions/config.System"
-                }
-            }
-        },
-        "config.Sqlite": {
-            "type": "object",
-            "properties": {
-                "config": {
-                    "type": "string"
                 },
-                "logMode": {
-                    "type": "boolean"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "path": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
+                "zap": {
+                    "type": "object",
+                    "$ref": "#/definitions/config.Zap"
                 }
             }
         },
@@ -2607,36 +2705,42 @@
                 "env": {
                     "type": "string"
                 },
+                "ossType": {
+                    "type": "string"
+                },
                 "useMultipoint": {
                     "type": "boolean"
                 }
             }
         },
-        "model.AutoCodeStruct": {
+        "config.Zap": {
             "type": "object",
             "properties": {
-                "abbreviation": {
+                "director": {
                     "type": "string"
                 },
-                "autoCreateApiToSql": {
+                "encodeLevel": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "linkName": {
+                    "type": "string"
+                },
+                "logInConsole": {
                     "type": "boolean"
                 },
-                "description": {
+                "prefix": {
                     "type": "string"
                 },
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/model.Field"
-                    }
+                "showLine": {
+                    "type": "boolean"
                 },
-                "packageName": {
-                    "type": "string"
-                },
-                "structName": {
-                    "type": "string"
-                },
-                "tableName": {
+                "stacktraceKey": {
                     "type": "string"
                 }
             }
@@ -2644,11 +2748,17 @@
         "model.ExaCustomer": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
                 "customerName": {
                     "type": "string"
                 },
                 "customerPhoneData": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "sysUser": {
                     "type": "object",
@@ -2659,12 +2769,21 @@
                 },
                 "sysUserId": {
                     "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
         "model.ExaFileUploadAndDownload": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
                 "key": {
                     "type": "string"
                 },
@@ -2674,39 +2793,10 @@
                 "tag": {
                     "type": "string"
                 },
+                "updatedAt": {
+                    "type": "string"
+                },
                 "url": {
-                    "type": "string"
-                }
-            }
-        },
-        "model.Field": {
-            "type": "object",
-            "properties": {
-                "columnName": {
-                    "type": "string"
-                },
-                "comment": {
-                    "type": "string"
-                },
-                "dataType": {
-                    "type": "string"
-                },
-                "dataTypeLong": {
-                    "type": "string"
-                },
-                "fieldDesc": {
-                    "type": "string"
-                },
-                "fieldJson": {
-                    "type": "string"
-                },
-                "fieldName": {
-                    "type": "string"
-                },
-                "fieldSearchType": {
-                    "type": "string"
-                },
-                "fieldType": {
                     "type": "string"
                 }
             }
@@ -2717,13 +2807,22 @@
                 "apiGroup": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "description": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "method": {
                     "type": "string"
                 },
                 "path": {
+                    "type": "string"
+                },
+                "updatedAt": {
                     "type": "string"
                 }
             }
@@ -2787,6 +2886,9 @@
                 "component": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "defaultMenu": {
                     "type": "boolean"
                 },
@@ -2796,11 +2898,20 @@
                 "icon": {
                     "type": "string"
                 },
+                "id": {
+                    "type": "integer"
+                },
                 "keepAlive": {
                     "type": "boolean"
                 },
                 "name": {
                     "type": "string"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.SysBaseMenuParameter"
+                    }
                 },
                 "parentId": {
                     "type": "string"
@@ -2813,14 +2924,49 @@
                 },
                 "title": {
                     "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.SysBaseMenuParameter": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "sysBaseMenuID": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
         "model.SysDictionary": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
                 "desc": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
@@ -2836,12 +2982,21 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
         "model.SysDictionaryDetail": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
                 "label": {
                     "type": "string"
                 },
@@ -2853,6 +3008,9 @@
                 },
                 "sysDictionaryID": {
                     "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
                 },
                 "value": {
                     "type": "integer"
@@ -2868,8 +3026,14 @@
                 "body": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "error_message": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "ip": {
                     "type": "string"
@@ -2888,6 +3052,9 @@
                 },
                 "status": {
                     "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
                 },
                 "user": {
                     "type": "object",
@@ -2908,10 +3075,19 @@
                 "authorityId": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "headerImg": {
                     "type": "string"
                 },
+                "id": {
+                    "type": "integer"
+                },
                 "nickName": {
+                    "type": "string"
+                },
+                "updatedAt": {
                     "type": "string"
                 },
                 "userName": {
@@ -2925,6 +3101,15 @@
         "model.SysWorkflow": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
                 "workflowDescription": {
                     "description": "工作流描述",
                     "type": "string"
@@ -2949,11 +3134,17 @@
         "model.SysWorkflowStepInfo": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
                 "isEnd": {
                     "description": "是否是完结流节点",
                     "type": "boolean"
                 },
-                "isStrat": {
+                "isStart": {
                     "description": "是否是开始流节点",
                     "type": "boolean"
                 },
@@ -2968,6 +3159,9 @@
                 "stepNo": {
                     "description": "步骤id （第几步）",
                     "type": "number"
+                },
+                "updatedAt": {
+                    "type": "string"
                 },
                 "workflowID": {
                     "description": "所属工作流ID",
@@ -2995,14 +3189,6 @@
                     "items": {
                         "$ref": "#/definitions/model.SysBaseMenu"
                     }
-                }
-            }
-        },
-        "request.AuthorityIdInfo": {
-            "type": "object",
-            "properties": {
-                "authorityId": {
-                    "type": "string"
                 }
             }
         },
@@ -3045,6 +3231,17 @@
                 }
             }
         },
+        "request.Empty": {
+            "type": "object"
+        },
+        "request.GetAuthorityId": {
+            "type": "object",
+            "properties": {
+                "authorityId": {
+                    "type": "string"
+                }
+            }
+        },
         "request.GetById": {
             "type": "object",
             "properties": {
@@ -3053,18 +3250,18 @@
                 }
             }
         },
-        "request.PageInfo": {
+        "request.IdsReq": {
             "type": "object",
             "properties": {
-                "page": {
-                    "type": "integer"
-                },
-                "pageSize": {
-                    "type": "integer"
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 }
             }
         },
-        "request.RegisterAndLoginStruct": {
+        "request.Login": {
             "type": "object",
             "properties": {
                 "captcha": {
@@ -3081,10 +3278,24 @@
                 }
             }
         },
+        "request.PageInfo": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                }
+            }
+        },
         "request.SearchApiParams": {
             "type": "object",
             "properties": {
                 "apiGroup": {
+                    "type": "string"
+                },
+                "createdAt": {
                     "type": "string"
                 },
                 "desc": {
@@ -3092,6 +3303,9 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "method": {
                     "type": "string"
@@ -3106,6 +3320,9 @@
                     "type": "integer"
                 },
                 "path": {
+                    "type": "string"
+                },
+                "updatedAt": {
                     "type": "string"
                 }
             }
@@ -3124,6 +3341,12 @@
         "request.SysDictionaryDetailSearch": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
                 "label": {
                     "type": "string"
                 },
@@ -3142,6 +3365,9 @@
                 "sysDictionaryID": {
                     "type": "integer"
                 },
+                "updatedAt": {
+                    "type": "string"
+                },
                 "value": {
                     "type": "integer"
                 }
@@ -3150,8 +3376,14 @@
         "request.SysDictionarySearch": {
             "type": "object",
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
                 "desc": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
@@ -3173,6 +3405,9 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
                 }
             }
         },
@@ -3185,8 +3420,14 @@
                 "body": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "error_message": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "ip": {
                     "type": "string"
@@ -3211,6 +3452,9 @@
                 },
                 "status": {
                     "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
                 },
                 "user": {
                     "type": "object",

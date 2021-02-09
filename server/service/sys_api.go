@@ -5,48 +5,41 @@ import (
 	"gin-vue-admin/global"
 	"gin-vue-admin/model"
 	"gin-vue-admin/model/request"
+	"gorm.io/gorm"
 )
 
-// @title    CreateApi
-// @description   create base apis, 新增基础api
-// @auth                     （2020/04/05  20:22）
-// @param     api             model.SysApi
-// @return                    error
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: CreateApi
+//@description: 新增基础api
+//@param: api model.SysApi
+//@return: err error
 
 func CreateApi(api model.SysApi) (err error) {
-	findOne := global.GVA_DB.Where("path = ? AND method = ?", api.Path, api.Method).Find(&model.SysApi{}).Error
-	if findOne == nil {
+	if !errors.Is(global.GVA_DB.Where("path = ? AND method = ?", api.Path, api.Method).First(&model.SysApi{}).Error, gorm.ErrRecordNotFound) {
 		return errors.New("存在相同api")
-	} else {
-		err = global.GVA_DB.Create(&api).Error
 	}
-	return err
+	return global.GVA_DB.Create(&api).Error
 }
 
-// @title    DeleteApi
-// @description   delete a base api, 删除基础api
-// @param     api             model.SysApi
-// @auth                     （2020/04/05  20:22）
-// @return                    error
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: DeleteApi
+//@description: 删除基础api
+//@param: api model.SysApi
+//@return: err error
 
 func DeleteApi(api model.SysApi) (err error) {
-	err = global.GVA_DB.Delete(api).Error
+	err = global.GVA_DB.Delete(&api).Error
 	ClearCasbin(1, api.Path, api.Method)
 	return err
 }
 
-// @title    GetInfoList
-// @description   get apis by pagination, 分页获取数据
-// @auth                     （2020/04/05  20:22）
-// @param     api             model.SysApi
-// @param     info            request.PageInfo
-// @param     order           string
-// @param     desc            bool
-// @return    err             error
-// @return    list            interface{}
-// @return    total           int
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: GetAPIInfoList
+//@description: 分页获取数据,
+//@param: api model.SysApi, info request.PageInfo, order string, desc bool
+//@return: err error
 
-func GetAPIInfoList(api model.SysApi, info request.PageInfo, order string, desc bool) (err error, list interface{}, total int) {
+func GetAPIInfoList(api model.SysApi, info request.PageInfo, order string, desc bool) (err error, list interface{}, total int64) {
 	limit := info.PageSize
 	offset := info.PageSize * (info.Page - 1)
 	db := global.GVA_DB.Model(&model.SysApi{})
@@ -81,51 +74,46 @@ func GetAPIInfoList(api model.SysApi, info request.PageInfo, order string, desc 
 			} else {
 				OrderStr = order
 			}
-			err = db.Order(OrderStr, true).Find(&apiList).Error
+			err = db.Order(OrderStr).Find(&apiList).Error
 		} else {
-			err = db.Order("api_group", true).Find(&apiList).Error
+			err = db.Order("api_group").Find(&apiList).Error
 		}
 	}
 	return err, apiList, total
 }
 
-// @title    GetAllApis
-// @description   get all apis, 获取所有的api
-// @auth                     （2020/04/05  20:22）
-// @return       err          error
-// @return       apis         []SysApi
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: GetAllApis
+//@description: 获取所有的api
+//@return: err error, apis []model.SysApi
 
 func GetAllApis() (err error, apis []model.SysApi) {
 	err = global.GVA_DB.Find(&apis).Error
 	return
 }
 
-// @title    GetApiById
-// @description   根据id获取api
-// @auth                     （2020/04/05  20:22）
-// @param     api             model.SysApi
-// @param     id              float64
-// @return                    error
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: GetApiById
+//@description: 根据id获取api
+//@param: id float64
+//@return: err error, api model.SysApi
 
 func GetApiById(id float64) (err error, api model.SysApi) {
 	err = global.GVA_DB.Where("id = ?", id).First(&api).Error
 	return
 }
 
-// @title    UpdateApi
-// @description   update a base api, update api
-// @auth                     （2020/04/05  20:22）
-// @param     api             model.SysApi
-// @return                    error
+//@author: [piexlmax](https://github.com/piexlmax)
+//@function: UpdateApi
+//@description: 根据id更新api
+//@param: api model.SysApi
+//@return: err error
 
 func UpdateApi(api model.SysApi) (err error) {
 	var oldA model.SysApi
-
 	err = global.GVA_DB.Where("id = ?", api.ID).First(&oldA).Error
-
 	if oldA.Path != api.Path || oldA.Method != api.Method {
-		flag := global.GVA_DB.Where("path = ? AND method = ?", api.Path, api.Method).Find(&model.SysApi{}).RecordNotFound()
-		if !flag {
+		if !errors.Is(global.GVA_DB.Where("path = ? AND method = ?", api.Path, api.Method).First(&model.SysApi{}).Error, gorm.ErrRecordNotFound) {
 			return errors.New("存在相同api路径")
 		}
 	}

@@ -1,6 +1,8 @@
 'use strict'
 
 const path = require('path')
+const buildConf = require('./build.config')
+const packageConf = require('./package.json')
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -23,7 +25,7 @@ module.exports = {
             // 把key的路径代理到target位置
             // detail: https://cli.vuejs.org/config/#devserver-proxy
             [process.env.VUE_APP_BASE_API]: { //需要代理的路径   例如 '/api'
-                target: `http://127.0.0.1:8888`, //代理到 目标路径
+                target: `http://127.0.0.1:8888/`, //代理到 目标路径
                 changeOrigin: true,
                 pathRewrite: { // 修改路径数据
                     ['^' + process.env.VUE_APP_BASE_API]: '' // 举例 '^/api:""' 把路径中的/api字符串删除
@@ -51,20 +53,49 @@ module.exports = {
             })
             .end()
         config
-            // https://webpack.js.org/configuration/devtool/#development
+        // https://webpack.js.org/configuration/devtool/#development
             .when(process.env.NODE_ENV === 'development',
-                config => config.devtool('cheap-source-map')
-            )
+            config => config.devtool('cheap-source-map')
+        )
 
         config
             .when(process.env.NODE_ENV !== 'development',
                 config => {
+
+                    // 不打包 begin
+                    // 1.目前已经测试通过[vue,axios,echarts]可以cdn引用，其它组件测试通过后可继续添加
+                    // 2.此处添加不打包后，需在public/index.html head中添加相应cdn资源链接
+                    config.set('externals', buildConf.cdns.reduce((p, a) => {
+                        p[a.name] = a.scope 
+                        return p
+                    },{}))
+                    // 不打包 end
+
+                    config.plugin('html')
+                        .tap(args => {
+                            if(buildConf.title) {
+                                args[0].title = buildConf.title
+                            }
+                            if(buildConf.cdns.length > 0) {
+                                args[0].cdns = buildConf.cdns.map(conf => {
+                                    if (conf.path) {
+                                        conf.js = `${buildConf.baseCdnUrl}${conf.path}`
+                                    } else {
+                                        conf.js = `${buildConf.baseCdnUrl}/${conf.name}/${packageConf.dependencies[conf.name].replace('^', '')}/${conf.name}.min.js`
+                                    }
+
+                                    return conf
+                                })
+                            }
+                            return args
+                        })
+
                     config
                         .plugin('ScriptExtHtmlWebpackPlugin')
                         .after('html')
                         .use('script-ext-html-webpack-plugin', [{
                             // `runtime` must same as runtimeChunk name. default is `runtime`
-                            inline: /runtime\..*\.js$/
+                            inline: /single\..*\.js$/
                         }])
                         .end()
                     config
